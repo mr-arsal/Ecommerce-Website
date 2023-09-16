@@ -1,40 +1,41 @@
 <template>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
+<div class="card">
+    <div>
+        <img src="#" class="card-img-top" alt="Product Image">
     </div>
-    <div class="col">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-    <div class="col">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
+    <div>
+        {{ categories }}
     </div>
 </div>
 </template>
+
+<script>
+const axios = require("axios")
+export default {
+    name: 'CategoryBox',
+    data() {
+        return {
+            categoryURL: "https://dummyjson.com/products/categories",
+            categories: []
+        };
+    },
+    methods: {
+        async getCategories() {
+            await axios.get(this.categoryURL)
+                .then(res => this.categories = console.log(res.data))
+                // .then(console.log(categories))
+                // .catch(err => console.log(err))
+
+        }
+    },
+    mounted() {
+        this.getCategories()
+    }
+}
+</script>
