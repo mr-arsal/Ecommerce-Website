@@ -1,0 +1,66 @@
+<template>
+<div class="whole-page">
+
+    <div class="container login-page">
+        <form class="bg-white rounded p-3">
+            <h3 class="text-center mt-4 mb-4">Welcome To Login Page</h3>
+            <div class="mb-3">
+                <label for="email" class="form-label fs-6">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email address" required>
+                <small id="emailvalid" class="form-text fs-6">
+                    Your email must consist of all the necessary characters and should not contain any errors
+                </small>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label fs-6">Password</label>
+                <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password">
+                <span><i id="togglePassword" class="far fa-eye ms-2 mt-2"></i></span>
+            </div>
+            <div class="login-btns">
+                <input class="btn btn-primary ps-3 pe-3" type="submit" value="Log in" />
+                <a class="btn btn-primary ps-3 pe-3" type="submit">Sign up</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+</template>
+
+<script>
+export default {
+    name: 'LogIn',
+}
+</script>
+
+<style scoped>
+
+.whole-page{
+    background-color: #f0f2f5;
+}
+/* -Login Page- */
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Login buttons */
+
+.login-btns{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Eyeicon */
+
+#togglePassword {
+    cursor: pointer;
+}
+
+/* --------------- */
+
+</style>
