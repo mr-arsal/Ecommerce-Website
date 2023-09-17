@@ -1,5 +1,5 @@
 <template>
     <div class="home">
-        <h1>Ecommerce Website</h1>
+        <h1>Ecommerce Websites</h1>
     </div>
 </template>

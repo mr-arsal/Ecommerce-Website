@@ -1,16 +1,18 @@
 <template>
-<div class="card">
-    <div>
-        <img src="#" class="card-img-top" alt="Product Image">
+<div class="container mt-5">
+    <div class="row">
+        <h4 class="col-12 text-center">Our Categories</h4>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    <div>
-        {{ categories }}
+    <div class="row">
+        <div class="card col-xl-4 col-md-6 mb-5" v-for="category of categories" :key="category.id">
+            <div>
+                <img src="https://wgmimedia.com/wp-content/uploads/2023/04/digital_products.jpg" class="card-img-top" alt="Product Image">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ category }}</h5>
+                <a href="#" class="btn btn-primary">Full Details</a>
+            </div>
+        </div>
     </div>
 </div>
 </template>
@@ -28,9 +30,8 @@ export default {
     methods: {
         async getCategories() {
             await axios.get(this.categoryURL)
-                .then(res => this.categories = console.log(res.data))
-                // .then(console.log(categories))
-                // .catch(err => console.log(err))
+                .then(res => this.categories = res.data)
+                .catch(err => console.log(err))
 
         }
     },
@@ -39,3 +40,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+</style>
