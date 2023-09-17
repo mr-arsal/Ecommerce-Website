@@ -3,6 +3,7 @@ import Home from '../components/Home.vue'
 import LogIn from '../components/LogIn.vue'
 import CategoryBox from '../components/CategoryBox.vue'
 import Products from '../components/Products.vue'
+import ProductDetail from '../components/ProductDetail.vue'
 
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/products/:id',
+    name: 'ProductDetail',
+    component: ProductDetail
   }
 ]
 
