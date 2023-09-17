@@ -2,12 +2,12 @@
     <div class="whole-page">
 
         <div class="container login-page">
-            <form class="bg-white rounded p-3">
+            <form @submit="login()" class="bg-white rounded p-3">
                 <h3 class="text-center mt-4 mb-4" style="text-decoration: underline; text-decoration-color: #198754">Welcome
                     To Login Page</h3>
                 <div class="mb-3">
                     <label for="email" class="form-label fs-6">Email address:</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                    <input v-model="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
                         placeholder="Enter your email address" required>
                     <small id="emailvalid" class="form-text fs-6">
                         Your email must consist of all the necessary characters and should not contain any errors
@@ -15,7 +15,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label fs-6">Password:</label>
-                    <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password">
+                    <input v-model="password" type="password" class="form-control" id="passwordInput"
+                        placeholder="Enter your password">
                     <span><i id="togglePassword" class="far fa-eye ms-2 mt-2"></i></span>
                 </div>
                 <div class="login-btns">
@@ -31,6 +32,33 @@
 <script>
 export default {
     name: 'LogIn',
+    data() {
+        return {
+            email: null,
+            password: null
+        }
+    },
+    methods: {
+        login(e) {
+            e.preventDefault();
+            const body = {
+                email: this.email,
+                password: this.password,
+            }
+            fetch('https://dummyjson.com/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+
+                    username: 'kminchelle',
+                    password: '0lelplR',
+                    // expiresInMins: 60, // optional
+                })
+            })
+            .then(res => res.json())
+            .then(console.log);
+        }
+    },
 }
 </script>
 
