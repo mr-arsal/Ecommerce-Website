@@ -42,6 +42,10 @@ ul {
     margin-left: -30px;
 }
 
+li{
+    cursor: pointer;
+}
+
 span {
     color: #198754;
 }

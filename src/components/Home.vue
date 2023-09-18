@@ -39,12 +39,6 @@ export default {
     font-size: 65px;
 }
 
-.bg-color {
-    width: 100%;
-    height: 100%;
-    background-color: #010922;
-}
-
 #buy-nft-bg {
     background-color: #198754;
 }
